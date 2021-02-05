@@ -20,3 +20,15 @@ after_success:
   - docker push amoljagadambe/multi-nginx
   - docker push amoljagadambe/multi-server
   - docker push amoljagadambe/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "fibonacci-calculator"
+  env: "Fibonaccicalculator-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-499977662464"
+  bucket_path: "fibonacci-calculator"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
