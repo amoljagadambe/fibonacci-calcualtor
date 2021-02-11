@@ -28,4 +28,14 @@ To run the Production build
     $ docker build -t react-app .
     $ docker run -p 3000:80 -d react-app
  then access the service on:  http://localhost:3000
+
+To Create the environment variable for localhost
+----
  
+    $ kubectl create secret generic pgpassword --from-literal PGPASSWORD=yourpassword
+
+To Create Ingress Controller Locally
+---
+
+    $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
+
